@@ -71,6 +71,7 @@ static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "2", "togg
 static const char *upbright[] = { "/usr/bin/xbacklight", "-inc", "5"};
 static const char *downbright[] = { "/usr/bin/xbacklight", "-dec", "5"};
 static const char *screenshotcmd[] = {"/usr/bin/scrot", "/home/athul/screenshots/%d-%m-%Y-%R.png", NULL};
+static const char *lock[] = {"/usr/local/bin/slock", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -105,6 +106,7 @@ static Key keys[] = {
 	{ 0,													  XF86XK_MonBrightnessDown, spawn, {.v = downbright} },
 	{ 0, XF86XK_MenuKB, spawn, {.v = termcmd} },
 	{0, PrintScreenDWM, spawn, {.v = screenshotcmd}},
+	{ MODKEY|ShiftMask,												XK_l,     spawn,					 {.v = lock} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
