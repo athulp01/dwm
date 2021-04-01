@@ -5,6 +5,7 @@
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "JetBrainsMonoMedium Nerd Font:size=10", "Noto Color Emoji" };
@@ -37,14 +38,14 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.6; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "T",      tile },    /* first entry is default */
+	{ "F",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
@@ -69,7 +70,7 @@ static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "2", "-5%"
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "2", "toggle",  NULL };
 static const char *upbright[] = { "/usr/bin/xbacklight", "-inc", "5"};
 static const char *downbright[] = { "/usr/bin/xbacklight", "-dec", "5"};
-static const char *screenshotcmd[] = {"/usr/bin/scrot", "-e", "'mv $f ~/screenshots/'"};
+static const char *screenshotcmd[] = {"/usr/bin/scrot", "/home/athul/screenshots/%d-%m-%Y-%R.png", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
