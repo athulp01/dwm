@@ -2,6 +2,7 @@
 
 #include <X11/XF86keysym.h>
 #define PrintScreenDWM 0x0000ff61
+#define MenuKey 0x0000ff67
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -18,7 +19,7 @@ static const char col_cyan[]        = "#61afef";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray4, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, "#cf8600",  col_cyan  },
+	[SchemeSel]  = { col_gray4, "#5c6370",  col_cyan  },
 	[SchemeTitle]  = { col_gray4, col_gray1,  col_cyan  },
 };
 
@@ -38,7 +39,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.6; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
@@ -117,6 +118,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_e,      quit,           {0} },
+	{0,															MenuKey,   spawn,						{.v = termcmd}},
 };
 
 /* button definitions */
