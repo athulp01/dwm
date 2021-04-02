@@ -4,7 +4,7 @@
 #define PrintScreenDWM 0x0000ff61
 #define MenuKey 0x0000ff67
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -15,11 +15,11 @@ static const char col_gray1[]       = "#282c34";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#abb2bf";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#61afef";
+static const char col_cyan[]        = "#ffffff";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray4, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, "#5c6370",  col_cyan  },
+	[SchemeSel]  = { col_gray4, "#61afef",  "#61afef"  },
 	[SchemeTitle]  = { col_gray4, col_gray1,  col_cyan  },
 };
 
@@ -63,7 +63,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", "#3f4452", "-sf", "#61afef", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *firefoxcmd[] = { "firefox", NULL };
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "2", "+5%",     NULL };
