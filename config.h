@@ -71,8 +71,9 @@ static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "2", "-5%"
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "2", "toggle",  NULL };
 static const char *upbright[] = { "/usr/bin/xbacklight", "-inc", "5"};
 static const char *downbright[] = { "/usr/bin/xbacklight", "-dec", "5"};
-static const char *screenshotcmd[] = {"/usr/bin/scrot", "/home/athul/screenshots/%d-%m-%Y-%R.png", NULL};
+static const char *screenshotcmd[] = {"/usr/bin/scrot", "/home/athul/screenshots/%d-%m-%Y-%R.png", "-e", "xclip -sel c -t image/png -i $f"};
 static const char *lock[] = {"/usr/local/bin/slock", NULL};
+static const char *telegram[] = {"/usr/bin/telegram-desktop"};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -100,6 +101,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,												XK_F2,		 spawn,          {.v = firefoxcmd } },
+	{ MODKEY,												XK_F3,		 spawn,          {.v = telegram } },
 	{ 0,														XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
 	{ 0,                            XF86XK_AudioMute, spawn, {.v = mutevol } },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
